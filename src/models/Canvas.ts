@@ -1,6 +1,6 @@
 export class Canvas {
 
-    private readonly ctx: CanvasRenderingContext2D | null;
+    ctx;
 
     constructor(
         private width: number,
@@ -9,10 +9,10 @@ export class Canvas {
     ) {
         this.canvas.width = this.width;
         this.canvas.height = this.height;
-        this.ctx = this.canvas.getContext('2d')
+        this.ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D
     }
 
-    getCtx(): CanvasRenderingContext2D | null {
+    getCtx(): CanvasRenderingContext2D {
         return this.ctx
     }
 
@@ -21,6 +21,6 @@ export class Canvas {
     }
 
     clearCanvas(): void {
-        this.ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     }
 }
